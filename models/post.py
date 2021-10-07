@@ -6,14 +6,13 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
-    artist_id = db.Column(db.Integer(255), foreign_key=False)
     content = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=str(
         datetime.utcnow()), nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.now())
-
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
+
 
     artist = db.relationship('Artist', backref=db.backref('artists', lazy=True))
 
