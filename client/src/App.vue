@@ -15,5 +15,9 @@ export default {
 </script>
 
 <style>
-
+background{ 
+position: absolute;
+width: 1013px;
+height: 662px;
+}
 </style>
