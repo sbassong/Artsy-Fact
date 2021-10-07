@@ -30,13 +30,13 @@ export default {
     async getArtistDetails() {
       const artist_id = parseInt(this.$route.params.artist_id)
 
-      const details = await this.GetArtistById(artist_id)
+      const details = await GetArtistById(artist_id)
       this.artistDetails = details.data
     },
     async getPosts() {
       const artist_id = parseInt(this.$route.params.artist_id)
 
-      const posts = await this.GetPostsByArtistId(artist_id)
+      const posts = await GetPostsByArtistId(artist_id)
       this.posts = details.data
     }
   }
