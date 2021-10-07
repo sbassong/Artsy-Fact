@@ -9,3 +9,8 @@ export const CreatePost = async (artist_id, data) => {
   const res = await Client.post('/', data)
   return res.data
 }
+
+export const RemovePost = async post_id => {
+  const res = await Client.delete(`/${post_id}`)
+  return res.data
+}

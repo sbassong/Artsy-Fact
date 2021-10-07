@@ -6,7 +6,7 @@ import About from './pages/About'
 
 
 const routes = [
-  {path: '/', component: ArtistsList, name: 'ArtistsList'},
+  {path: '/artists', component: ArtistsList, name: 'ArtistsList'},
   {path: '/artists/details/:artist_id', component: ArtistDetails, name: 'ArtistDetails'},
   {path: '/about', component: About, name: 'About'}
 ]

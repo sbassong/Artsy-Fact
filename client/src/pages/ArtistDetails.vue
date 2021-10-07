@@ -9,6 +9,9 @@
   import Forum from '../components/Forum'
   import ArtistBio from '../components/ArtistBio'
 
+  import {GetArtistById} from '../services/artists'
+  import {GetPostsByArtistId} from '../services/posts'
+
 export default {
   name: 'ArtistDetails',
   data: () => ({
@@ -25,36 +28,21 @@ export default {
   },
   methods: {
     async getArtistDetails() {
-      // Get game id from router here
-      
-    },
-    goHome() {
-      this.$router.push('/')
+      const artist_id = parseInt(this.$route.params.artist_id)
+
+      const details = await this.GetArtistById(artist_id)
+      this.artistDetails = details.data
     },
     async getPosts() {
-      
+      const artist_id = parseInt(this.$route.params.artist_id)
+
+      const posts = await this.GetPostsByArtistId(artist_id)
+      this.posts = details.data
     }
   }
 }
 </script>
 
 <style scoped>
-  .post {
-    background-color: rgb(100, 97, 97);
-    padding: .5em 1em;
-    margin: 0.5em auto;
-    border-radius: 20px
-  }
 
-  .post img,h6 {
-    display: inline-block;
-  }
-
-  .img-cont {
-    display: flex;
-  }
-
-  .img-cont div {
-    margin: 1em ;
-  }
 </style>

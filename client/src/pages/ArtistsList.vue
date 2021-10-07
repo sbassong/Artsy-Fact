@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import {GetArtists} from '../services/artists'
 
 export default {
   name: 'ArtistsList',
@@ -24,11 +25,15 @@ export default {
     artists: []
   }),
   mounted() {
-
+    this.getArtists()
   },
   methods: {
     async getArtists() {
-      
+      const artists = await GetArtists()
+      this.artists = artists
+    },
+    selectArtist(artist_id) {
+      this.$router.push(`/artists/details/${artist_id}`)
     }
   }
 }
