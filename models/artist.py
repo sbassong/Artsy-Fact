@@ -3,7 +3,7 @@ from models.db import db
 
 
 class Artist(db.Model):
-    __tablename__ = 'artist'
+    __tablename__ = 'artists'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
@@ -14,7 +14,7 @@ class Artist(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.now())
 
-    artist = db.relationship("artist", cascade='all', backref=db.backref('artist', lazy=True))
+    artist = db.relationship("Artist", cascade='all', backref=db.backref('artist', lazy=True))
 
 
     def __init__(self, name, picture, bio):

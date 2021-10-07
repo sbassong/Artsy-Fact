@@ -3,7 +3,7 @@ from models.db import db
 
 
 class Post(db.Model):
-    __tablename__ = 'post'
+    __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
     artist_id = db.Column(db.Integer(255), foreign_key=False)
@@ -15,7 +15,7 @@ class Post(db.Model):
 
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
 
-    post = db.relationship("post", backref=db.backref('post', lazy=True))
+    post = db.relationship("Post", backref=db.backref('posts', lazy=True))
 
 
     def __init__(self, artist_id, content):
