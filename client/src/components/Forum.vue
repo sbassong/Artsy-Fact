@@ -2,7 +2,7 @@
   <div class="forum">
 
     <section class="post-form-cont">
-      <button class='show-form-button' @click='renderForm'></button>
+      <button class='show-form-button' @click='renderForm'>Add</button>
       <PostForm :artist_id='artist_id' v-if='clicked'/>
     </section>
 
@@ -23,30 +23,21 @@
 </template>
 
 <script>
-import {GetPostsByArtistId} from '../services/posts'
 import PostForm from './PostForm.vue'
 
 export default {
   name: 'Forum',
   data: () => ({
-    posts: []
   }),
   components: {
     PostForm
   },
   props: {
-    artist_id: Number,
+    posts: Array
   },
-  mounted() {
-    this.getPosts()
-  },
+ 
   methods: {
-    async getPosts() {
-      const art_id = parseInt(this.artist_id)
 
-      const posts = await GetPostsByArtistId(art_id)
-      this.posts = posts.data
-    }
   }
 }
 </script>
