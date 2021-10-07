@@ -12,7 +12,7 @@
         <section v-for='post in posts' :key='post.id'>
           <div class="post">
             <h4>Reviewer: {{post.reviewer}}</h4>
-            <h6>{{post.content}}</h6>
+            <h5>{{post.content}}</h5>
           </div>
         </section>
       </div>
@@ -35,7 +35,6 @@ export default {
   props: {
     posts: Array
   },
- 
   methods: {
 
   }
