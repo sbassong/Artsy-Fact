@@ -3,7 +3,7 @@
 
     <section class="post-form-cont">
       <button class='show-form-button' @click='renderForm'></button>
-      <PostForm v-if='clicked'/>
+      <PostForm :artist_id='artist_id' v-if='clicked'/>
     </section>
 
     <section class="posts">
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import {GetPostsByArtistId} from '../services/posts'
 
 export default {
   name: 'Forum',
@@ -33,14 +34,17 @@ export default {
     PostForm
   },
   props: {
-    artist_id: Number
+    artist_id: Number,
   },
   mounted() {
     this.getPosts()
   },
   methods: {
     async getPosts() {
-      
+      const art_id = parseInt(this.artist_id)
+
+      const posts = await GetPostsByArtistId(art_id)
+      this.posts = details.data
     }
   }
 }
