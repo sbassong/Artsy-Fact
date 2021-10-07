@@ -1,7 +1,7 @@
 <template>
   <div class="artist-content">
     <ArtistBio :name='artistDetails.name' :picture='artistDetails.picture' :bio='artistDetails.bio'/>
-    <Forum :artist_id='artistDetails.id'/>
+    <Forum :artist_id='artistDetails.id' />
   </div>
 </template>
 
@@ -10,13 +10,11 @@
   import ArtistBio from '../components/ArtistBio'
 
   import {GetArtistById} from '../services/artists'
-  import {GetPostsByArtistId} from '../services/posts'
 
 export default {
   name: 'ArtistDetails',
   data: () => ({
     artistDetails: null,
-    posts: []
   }),
   components: {
     Forum,
@@ -24,7 +22,6 @@ export default {
   },
   mounted() {
     this.getArtistDetails()
-    this.getPosts()
   },
   methods: {
     async getArtistDetails() {
@@ -32,12 +29,6 @@ export default {
 
       const details = await GetArtistById(artist_id)
       this.artistDetails = details.data
-    },
-    async getPosts() {
-      const artist_id = parseInt(this.$route.params.artist_id)
-
-      const posts = await GetPostsByArtistId(artist_id)
-      this.posts = details.data
     }
   }
 }

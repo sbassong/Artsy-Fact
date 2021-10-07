@@ -5,7 +5,7 @@ export const GetPostsByArtistId = async (artist_id) => {
   return res.data
 }
 
-export const CreatePost = async (artist_id, data) => {
+export const CreatePost = async (data) => {
   const res = await Client.post('/', data)
   return res.data
 }

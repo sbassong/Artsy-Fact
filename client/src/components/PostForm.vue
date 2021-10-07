@@ -11,16 +11,17 @@
 </template>
 
 <script>
-
+import {CreatePost} from '../services/posts'
 export default {
-  name: 'Home',
-  components: {
-  },
+  name: 'PostForm',
   data: () => ({
     reviewer: '',
     content: '',
 
   }),
+  props: {
+    artist_id: Number
+  },
   methods: {
     handleChange(event) {
       this[event.target.name] = event.target.value
@@ -28,6 +29,13 @@ export default {
     handleSubmit(event) {
       event.preventDefault()
       //use the post service to create a record in the posts table here.
+      const postBody = {
+        name: this.reviewer,
+        content: this.content,
+        artist_id: this.artist_id
+      }
+
+      await CreatePost(postBody)
     }
   }
 }
