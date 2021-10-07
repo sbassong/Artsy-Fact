@@ -36,7 +36,7 @@ class PostDetail(Resource):
         return post.json()
 
     def delete(self, post_id):
-        post = Post.find_by_id()
+        post = Post.find_by_id(post_id)
         if not post:
             return {"msg": "Not found"}, 404
         db.session.delete(post)
