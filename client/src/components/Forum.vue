@@ -24,6 +24,7 @@
 
 <script>
 import {GetPostsByArtistId} from '../services/posts'
+import PostForm from './PostForm.vue'
 
 export default {
   name: 'Forum',
@@ -44,7 +45,7 @@ export default {
       const art_id = parseInt(this.artist_id)
 
       const posts = await GetPostsByArtistId(art_id)
-      this.posts = details.data
+      this.posts = posts.data
     }
   }
 }

@@ -15,6 +15,7 @@
 
 <script>
 import {GetArtists} from '../services/artists'
+import ArtistCard from '../components/ArtistCard.vue'
 
 export default {
   name: 'ArtistsList',
