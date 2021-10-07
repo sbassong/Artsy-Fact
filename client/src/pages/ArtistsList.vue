@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  name: 'ArtistList',
+  name: 'ArtistsList',
   components: {
     ArtistCard
   },
