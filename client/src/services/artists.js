@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const GetArtists = async => {
+export const GetArtists = async () => {
   const res = await Client.get(`/artists`)
   return res.data
 }
