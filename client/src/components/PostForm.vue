@@ -2,7 +2,7 @@
   <div>
 
       <form @submit='handleSubmit'>
-        <input type="text" name='name' :value='reviewer' @input='handleChange'>
+        <input type="text" name='reviewer' :value='reviewer' @input='handleChange'>
         <input type="text" name='content' :value='content' @input='handleChange'>
         <button>Post</button>
       </form>
@@ -30,7 +30,7 @@ export default {
       event.preventDefault()
       //use the post service to create a record in the posts table here.
       const postBody = {
-        name: this.reviewer,
+        reviewer: this.reviewer,
         content: this.content,
         artist_id: this.artist_id
       }

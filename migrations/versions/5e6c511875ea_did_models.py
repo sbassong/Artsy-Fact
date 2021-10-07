@@ -1,8 +1,8 @@
-"""made my models
+"""did models
 
-Revision ID: de417e515768
+Revision ID: 5e6c511875ea
 Revises: 
-Create Date: 2021-10-07 13:27:47.445658
+Create Date: 2021-10-07 16:11:45.102090
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'de417e515768'
+revision = '5e6c511875ea'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,6 +31,7 @@ def upgrade():
     )
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('reviewer', sa.String(length=255), nullable=False),
     sa.Column('content', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),

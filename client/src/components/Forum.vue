@@ -11,7 +11,7 @@
       <div>
         <section v-for='post in posts' :key='post.id'>
           <div class="post">
-            <h4>Name: {{post.name}}</h4>
+            <h4>Reviewer: {{post.reviewer}}</h4>
             <h6>{{post.content}}</h6>
           </div>
         </section>

@@ -1,7 +1,11 @@
 <template>
   <div>
 
+<<<<<<< HEAD
     <div class="artists" >
+=======
+    <div class="artists">
+>>>>>>> 2a9efd9aaf73480fc7de03f34113135e1c6d287d
       <h2>Artists</h2>
       <section class="container-grid" v-for='artist in artists' :key='artist.id'>
         <div @click="selectArtist(artist.id)">
