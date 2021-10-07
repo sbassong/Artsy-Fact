@@ -27,7 +27,7 @@ export default {
     },
     handleSubmit(event) {
       event.preventDefault()
-      //use the post to posts table service here.
+      //use the post service to create a record in the posts table here.
     }
   }
 }
