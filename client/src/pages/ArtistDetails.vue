@@ -1,7 +1,7 @@
 <template>
   <div class="artist-content">
-    <ArtistBio />
-    <Forum />
+    <ArtistBio :name='artistDetails.name' :picture='artistDetails.picture' :bio='artistDetails.bio'/>
+    <Forum :artist_id='artistDetails.id'/>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 export default {
   name: 'ArtistDetails',
   data: () => ({
-    ArtistDetails: null,
+    artistDetails: null,
     posts: []
   }),
   components: {

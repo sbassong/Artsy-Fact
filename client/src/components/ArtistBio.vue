@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  name: 'ArtistDetails',
+  name: 'ArtistBio',
   props: {
     name: String,
     picture: String,
