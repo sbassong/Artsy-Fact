@@ -13,9 +13,9 @@ class Post(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.now())
 
-    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
 
-    post = db.relationship("Post", backref=db.backref('posts', lazy=True))
+    artist = db.relationship('Artist', backref=db.backref('artists', lazy=True))
 
 
     def __init__(self, artist_id, content):
