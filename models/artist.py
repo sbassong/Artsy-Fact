@@ -14,7 +14,7 @@ class Artist(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.now())
 
-    artist = db.relationship("artist", cascade='all', backref=db.backref('artist', lazy=True))
+    posts = db.relationship("Post", cascade='all', backref=db.backref('posts', lazy=True))
 
 
     def __init__(self, name, picture, bio):
