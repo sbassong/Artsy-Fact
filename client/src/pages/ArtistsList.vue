@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class="artists" >
+    <div class="artists">
       <h2>Artists</h2>
       <section class="container-grid" v-for='artist in artists' :key='artist.id'>
         <div @click="selectArtist(artist.id)">

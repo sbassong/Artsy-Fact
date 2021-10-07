@@ -1,13 +1,13 @@
 <template>
   <section class="bio">
     <div class='picture-cont'>
-      <img :src="picture" alt="">
+      <img width="200" :src="picture" alt="">
     </div>
 
     <div class=bio-cont>
       <button @click='goHome'>Home</button>
-      <h3>{{name}}</h3>
-      <h5>Bio: {{bio}}</h5>
+      <h3>{{name}} </h3>
+      <h4>Bio: {{bio}}</h4>
     </div>
 
   </section>

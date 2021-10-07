@@ -1,7 +1,7 @@
 <template>
   <div class="artist-content">
     <ArtistBio :name='artistDetails.name' :picture='artistDetails.picture' :bio='artistDetails.bio'/>
-    <Forum :artist_id='artistDetails.id' />
+    <Forum :posts='artistDetails.posts' />
   </div>
 </template>
 
@@ -28,7 +28,8 @@ export default {
       const artist_id = parseInt(this.$route.params.artist_id)
 
       const details = await GetArtistById(artist_id)
-      this.artistDetails = details.data
+      console.log(details)
+      this.artistDetails = details
     }
   }
 }

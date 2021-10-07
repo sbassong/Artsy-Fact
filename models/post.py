@@ -26,7 +26,7 @@ class Post(db.Model):
         
 
     def json(self):
-        return {"id": self.id, "artist_id": self.artist_id, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {"id": self.id, "reviewer": self.reviewer, "artist_id": self.artist_id, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
         db.session.add(self)
