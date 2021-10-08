@@ -31,9 +31,9 @@ export default {
         password: this.password
       }
       await LoginUser(loginBody)
-      this.$route.push('/')
       this.email = ''
       this.password = ''
+      this.$router.push('/')
     }
   }
 }

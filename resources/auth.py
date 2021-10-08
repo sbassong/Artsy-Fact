@@ -4,8 +4,8 @@ from models.user import User
 from middleware import create_token, strip_token, read_token, compare_password, gen_password
 
 
-
 class Login(Resource):
+  #handle login
   def post(self):
     data = request.get_json()
     user = User.find_one(data["email"]) 
@@ -18,16 +18,17 @@ class Login(Resource):
       return {"user" : payload, "token": token}
     return {"msg": "Unauthorized"}, 404
 
-
+  #handles checking for user session
   def get(self):
     token = strip_token(request)
     payload = read_token(token)
     if payload:
       return payload, 200
     return {"msg": "unauthorized"}, 404
-# # figure this out! ask Instructors if need be
+
 
 class Register(Resource):
+  #handle register
   def post(self):
     data = request.get_json()
     params = {

@@ -29,7 +29,6 @@ export default {
     },
     async handleSubmit(event) {
       event.preventDefault()
-      //use the post service to create a record in the posts table here.
       const postBody = {
         reviewer: this.reviewer,
         content: this.content,

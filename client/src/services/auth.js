@@ -11,12 +11,8 @@ export const RegisterUser = async (data) => {
     return res.data
 }
 
-// // Does this have a purpose here?
-// export const CheckSession = async () => {
-//   try {
-//     const res = await Client.get('users/session')
-//     return res.data
-//   } catch (error) {
-//     throw error
-//   }
-// }
+export const CheckSession = async () => {
+    const res = await Client.get('users/login')
+    return res.data
+  
+}
