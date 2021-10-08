@@ -27,9 +27,19 @@ export default {
 }
 
 h1 {
-font-family: fantasy;
-font-size: 8rem;
-text-decoration-thickness: 20px;
+position: absolute;
+width: 452px;
+height: 195px;
+
+font-family: 'Black Ops One', cursive;;
+font-style: normal;
+font-weight: normal;
+font-size: 96px;
+line-height: 119px;
+text-align: center;
+text-shadow: 2rem;
+color: #6b757e;
+text-shadow-color: Black;
 }
 </style>
 
