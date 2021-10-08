@@ -21,7 +21,7 @@ class User(db.Model):
         self.password_digest = password_digest
 
     def json(self):
-        return {"name": self.name, "email": self.email, "password_digest": self.password_digest, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {"id": self.id, "name": self.name, "email": self.email, "password_digest": self.password_digest, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
         db.session.add(self)
