@@ -3,7 +3,7 @@
 
     <section class="post-form-cont">
       <div>
-        <button class='show-form-button' @click='renderForm'>Add</button>
+        <button class='show-form-button' @click='renderForm'>Add Review</button>
         <PostForm :user_id="user_id" :artist_id='artist_id' v-if='clicked'/>
       </div>
     </section>
@@ -16,7 +16,7 @@
             <h4>Reviewer: {{post.reviewer}}</h4>
             <h5>{{post.content}}</h5>
             <!-- <div v-if='user && authenticated' > -->
-              <button @click='deletePost(post.id)' >Delete</button>
+              <button @click='deletePost(post.id)' >Delete Post</button>
             <!-- </div> -->
           </div>
         </section>
