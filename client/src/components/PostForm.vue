@@ -34,7 +34,6 @@ export default {
         content: this.content,
         artist_id: this.artist_id
       }
-
       await CreatePost(postBody)
     }
   }

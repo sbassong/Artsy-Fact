@@ -2,8 +2,10 @@
   <div class="forum">
 
     <section class="post-form-cont">
-      <button class='show-form-button' @click='renderForm'>Add</button>
-      <PostForm :artist_id='artist_id' v-if='clicked'/>
+      <div>
+        <button class='show-form-button' @click='renderForm'>Add</button>
+        <PostForm :artist_id='artist_id' v-if='clicked'/>
+      </div>
     </section>
 
     <section class="posts">
@@ -12,39 +14,47 @@
         <section v-for='post in posts' :key='post.id'>
           <div class="post">
             <h4>Reviewer: {{post.reviewer}}</h4>
-            <h6>{{post.content}}</h6>
+            <h5>{{post.content}}</h5>
+            <!-- <div v-if='user && authenticated' > -->
+              <button @click='deletePost(post.id)' >Delete</button>
+            <!-- </div> -->
           </div>
         </section>
       </div>
-      
-      
     </section>
+
   </div>
 </template>
 
 <script>
 import PostForm from './PostForm.vue'
+import {RemovePost} from '../services/posts'
 
 export default {
   name: 'Forum',
   data: () => ({
+    clicked: false
   }),
   components: {
-    PostForm
+    PostForm,
   },
   props: {
-    posts: Array
+    posts: Array,
+    artist_id: Number
   },
- 
   methods: {
-
+    renderForm() {
+      this.clicked ? this.clicked=false : this.clicked=true
+    },
+    async deletePost(post_id) {
+      await RemovePost(post_id)
+    }
   }
 }
 </script>
 
 <style scoped>
   .post {
-    /* background-color: rgb(100, 97, 97); */
     padding: .5em 1em;
     margin: 0.5em auto;
     border-radius: 20px
