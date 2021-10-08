@@ -1,7 +1,7 @@
 <template>
   <div class="artist-content">
     <ArtistBio :name='artistDetails.name' :picture='artistDetails.picture' :bio='artistDetails.bio'/>
-    <Forum :posts='artistDetails.posts' />
+    <Forum :posts='artistDetails.posts' :artist_id='artistDetails.id'/>
   </div>
 </template>
 
