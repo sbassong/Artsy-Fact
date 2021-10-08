@@ -1,22 +1,23 @@
 <template>
   <div>
-
       <form @submit='handleSubmit'>
-        <input type="text" name='reviewer' :value='reviewer' @input='handleChange'>
-        <input type="text" name='content' :value='content' @input='handleChange'>
-        <button>Post</button>
+        <input type="text" name='name' :value='reviewer' @input='handleChange'>
+        <input type="text" name='email' :value='reviewer' @input='handleChange'>
+        <input type="text" name='' :value='content' @input='handleChange'>
+        <button>Register</button>
       </form>
-      
+
   </div>
 </template>
 
 <script>
-import {CreatePost} from '../services/posts'
+import {RegisterUser} from '../services/auth'
 export default {
   name: 'PostForm',
   data: () => ({
     reviewer: '',
     content: '',
+
 
   }),
   props: {
