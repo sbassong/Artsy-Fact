@@ -8,25 +8,26 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     reviewer = db.Column(db.String(255), nullable=False)
     content = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, default=str(
-        datetime.utcnow()), nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow(
-    ), nullable=False, onupdate=datetime.now())
+    created_at = db.Column(db.DateTime, default=str(datetime.utcnow()), nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False, onupdate=datetime.now())
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-
+    #associations
     artist = db.relationship('Artist', backref=db.backref('artists', lazy=True))
+    user = db.relationship('User', backref=db.backref('users', lazy=True))
 
 
-    def __init__(self, reviewer, artist_id, content):
+    def __init__(self, reviewer, artist_id, user_id, content):
         self.reviewer = reviewer
         self.artist_id = artist_id
         self.content = content
+        self.user_id = user_id
         
         
 
     def json(self):
-        return {"id": self.id, "reviewer": self.reviewer, "artist_id": self.artist_id, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {"id": self.id, "reviewer": self.reviewer, "user_id": self.user_id, "artist_id": self.artist_id, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
         db.session.add(self)

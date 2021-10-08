@@ -1,7 +1,7 @@
 import bcrypt
 import jwt
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -21,15 +21,6 @@ def read_token(token):
     except jwt.InvalidTokenError:
         return "Token Invalid"
 
-
-#handles hashing password
-def gen_password(password):
-    return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-
-#compares password on login?
-def compare_password(password, hashed_password):
-    return bcrypt.checkpw(password.encode(), hashed_password.encode())
-
 #accepts one argument of req (flask request object), reads the token from the request headers
 def strip_token(req):
     try:
@@ -37,3 +28,14 @@ def strip_token(req):
         return token
     except:
         return None
+
+
+
+# handles hashing password
+def gen_password(password):
+    return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+
+#compares password on login?
+def compare_password(password, hashed_password):
+    return bcrypt.checkpw(password.encode(), hashed_password.encode())
+

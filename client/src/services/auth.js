@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const SignInUser = async (data) => {
+export const LoginUser = async (data) => {
   try {
     const res = await Client.post('users/login', data)
     localStorage.setItem('token', res.data.token)
@@ -10,20 +10,21 @@ export const SignInUser = async (data) => {
   }
 }
 
-export const SignUpUser = async (data) => {
+export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post('users/signup', data)
+    const res = await Client.post('users/register', data)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const CheckSession = async () => {
-  try {
-    const res = await Client.get('users/session')
-    return res.data
-  } catch (error) {
-    throw error
-  }
-}
+// // Does this have a purpose here?
+// export const CheckSession = async () => {
+//   try {
+//     const res = await Client.get('users/session')
+//     return res.data
+//   } catch (error) {
+//     throw error
+//   }
+// }

@@ -7,14 +7,13 @@ class Artist(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    picture = db.Column(db.String(255), nullable=False, unique=True)
-    bio = db.Column(db.String(255), nullable=False, unique=True)
-    created_at = db.Column(db.DateTime, default=str(
-        datetime.utcnow()), nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow(
-    ), nullable=False, onupdate=datetime.now())
+    picture = db.Column(db.String(255), nullable=False)
+    bio = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, default=str(datetime.utcnow()), nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False, onupdate=datetime.now())
 
-    posts = db.relationship("Post", cascade='all', backref=db.backref('posts', lazy=True))
+    #associations
+    posts = db.relationship("Post", cascade='all', backref=db.backref('artist_posts', lazy=True))
 
 
     def __init__(self, name, picture, bio):

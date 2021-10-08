@@ -1,6 +1,5 @@
 from models.db import db
 from models.post import Post
-from models.artist import Artist
 from flask_restful import Resource
 from flask import request
 from sqlalchemy.orm import joinedload
