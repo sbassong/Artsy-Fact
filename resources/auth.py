@@ -8,8 +8,8 @@ from middleware import create_token, strip_token, read_token, compare_password, 
 class Login(Resource):
   def post(self):
     data = request.get_json()
-    user = User.find_one(data.email)    
-    if user and compare_password(data.password, user.password_digest):
+    user = User.find_one(data["email"]) 
+    if user and compare_password(data["password"], user.password_digest):
       payload = {
         "id": user.id,
         "email": user.email
@@ -20,13 +20,12 @@ class Login(Resource):
 
 
   def get(self):
-    data = request.get_json()
-    token = strip_token(data)
+    token = strip_token(request)
     payload = read_token(token)
     if payload:
-      return {payload}, 200
+      return payload, 200
     return {"msg": "unauthorized"}, 404
-# figure this out! ask Instructors if need be
+# # figure this out! ask Instructors if need be
 
 class Register(Resource):
   def post(self):

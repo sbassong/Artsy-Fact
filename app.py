@@ -26,5 +26,6 @@ api.add_resource(artist.ArtistDetail, '/artists/<int:artist_id>')
 
 api.add_resource(post.Posts, '/posts')
 api.add_resource(post.PostDetail,'/posts/<int:post_id>')
+
 if __name__ == '__main__':
     app.run(debug=True)

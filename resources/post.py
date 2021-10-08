@@ -3,6 +3,7 @@ from models.post import Post
 from flask_restful import Resource
 from flask import request
 from sqlalchemy.orm import joinedload
+from middleware import create_token, strip_token, read_token, compare_password, gen_password
 
 
 class Posts(Resource):
@@ -35,9 +36,12 @@ class PostDetail(Resource):
         return post.json()
 
     def delete(self, post_id):
-        post = Post.find_by_id(post_id)
-        if not post:
-            return {"msg": "Not found"}, 404
-        db.session.delete(post)
-        db.session.commit()
-        return {"msg": "Post Deleted", "payload": post_id}
+        token = strip_token(request)
+        payload = read_token(token)
+        if payload:
+            post = Post.find_by_id(post_id)
+            if not post:
+                return {"msg": "Not found"}, 404
+            db.session.delete(post)
+            db.session.commit()
+            return {"msg": "Post Deleted", "payload": post_id}
