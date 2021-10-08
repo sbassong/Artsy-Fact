@@ -15,6 +15,9 @@
           <div class="post">
             <h4>Reviewer: {{post.reviewer}}</h4>
             <h5>{{post.content}}</h5>
+            <!-- <div v-if='user && authenticated' > -->
+              <button @click='deletePost(post.id)' >Delete</button>
+            <!-- </div> -->
           </div>
         </section>
       </div>
@@ -25,6 +28,7 @@
 
 <script>
 import PostForm from './PostForm.vue'
+import {RemovePost} from '../services/posts'
 
 export default {
   name: 'Forum',
@@ -41,6 +45,9 @@ export default {
   methods: {
     renderForm() {
       this.clicked ? this.clicked=false : this.clicked=true
+    },
+    async deletePost(post_id) {
+      await RemovePost(post_id)
     }
   }
 }
