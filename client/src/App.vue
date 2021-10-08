@@ -1,7 +1,7 @@
 <template>
   <div id='app'> 
     <main class='main'>
-      
+    <Nav />
       <router-view></router-view>
     </main>
   </div>
@@ -9,19 +9,19 @@
 </template>
 
 <script>
-
+import Nav from './components/Nav.vue'
 export default {
   name: 'App',
-  components: {
-  
+  components:{
+    Nav
   }
 }
 </script>
 
 <style>
-/* background{ 
+background{ 
 position: absolute;
-width: 1013px;
-height: 662px;
-} */
+width: 100%;
+height:100%;
+}
 </style>

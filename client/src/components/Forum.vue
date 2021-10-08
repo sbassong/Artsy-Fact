@@ -4,7 +4,7 @@
     <section class="post-form-cont">
       <div>
         <button class='show-form-button' @click='renderForm'>Add</button>
-        <PostForm :artist_id='artist_id' v-if='clicked'/>
+        <PostForm :user_id="user_id" :artist_id='artist_id' v-if='clicked'/>
       </div>
     </section>
 
