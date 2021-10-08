@@ -1,39 +1,33 @@
 <template>
+  <div class="nav justify-content-space-between">
 
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/artists">Artists</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/about">About</a>
-  </li>
-  <li class="nav-item">
-    <!-- <a class="nav-link" href="/about"> -->
-      <button @click='renderRegisterForm'>Sign Up</button>
-      <div v-if='clickedRegister'>
-        <RegisterForm />
-      </div>
-    <!-- </a> -->
-  </li>
-  <li class="nav-item">
-    <!-- <a class="nav-link" href="/about"> -->
-      <button @click='renderLoginForm'>Sign in</button>
-      <div v-if="clickedLogin">
-        <LoginForm />
-      </div>
-    <!-- </a> -->
-  </li>
-  
-</ul>
+    <ul class="nav justify-content-start">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Artsy_Facts</a>
+      </li>
+    </ul>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/login">Sign In</a>
+      </li>
+    </ul>
+  </div>
 
 </template>
 
 <script>
-import RegisterForm from '../components/RegisterForm.vue'
-import LoginForm from '../components/LoginForm.vue'
 
 export default {
   name: 'Nav',
@@ -41,10 +35,6 @@ export default {
     clickedRegister: false,
     clickedLogin: false
   }),
-  components:{
-    RegisterForm,
-    LoginForm
-  },
   methods: {
     renderLoginForm() {
       this.clickedLogin ? this.clickedLogin=false : this.clickedLogin=true

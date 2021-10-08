@@ -39,10 +39,11 @@ export default {
         password: this.password
       }
       await RegisterUser(userBody)
-      this.$route.push('/users/login')
       this.name = ''
       this.email = ''
-      this.password = ''    }
+      this.password = '' 
+      this.$router.push('/users/login')
+      }
   }
 }
 </script>
