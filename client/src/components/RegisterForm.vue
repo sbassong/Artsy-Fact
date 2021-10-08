@@ -1,9 +1,12 @@
 <template>
   <div>
       <form @submit='handleSubmit'>
-        <input type="text" name='name' :value='reviewer' @input='handleChange'>
-        <input type="text" name='email' :value='reviewer' @input='handleChange'>
-        <input type="text" name='' :value='content' @input='handleChange'>
+        <label for="name">Name</label>
+        <input type="text" placeholder="Enter name here. i.e John " name='name' :value='name' @input='handleChange'>
+        <label for="email">Email</label>
+        <input type="text" placeholder="Enter Email here. i.e john@email.com" name='email' :value='email' @input='handleChange'>
+        <label for="password">Password</label>
+        <input type="text" placeholder="Enter password here" name='password' :value='password' @input='handleChange'>
         <button>Register</button>
       </form>
 
@@ -12,13 +15,13 @@
 
 <script>
 import {RegisterUser} from '../services/auth'
+
 export default {
-  name: 'PostForm',
+  name: 'RegisterForm',
   data: () => ({
-    reviewer: '',
-    content: '',
-
-
+    name: '',
+    email: '',
+    password: ''
   }),
   props: {
     artist_id: Number
@@ -30,13 +33,16 @@ export default {
     async handleSubmit(event) {
       event.preventDefault()
       //use the post service to create a record in the posts table here.
-      const postBody = {
-        reviewer: this.reviewer,
-        content: this.content,
-        artist_id: this.artist_id
+      const userBody = {
+        name: this.name,
+        email: this.email,
+        password: this.password
       }
-      await CreatePost(postBody)
-    }
+      await RegisterUser(userBody)
+      this.$route.push('/users/login')
+      this.name = ''
+      this.email = ''
+      this.password = ''    }
   }
 }
 </script>

@@ -20,7 +20,8 @@ export default {
 
   }),
   props: {
-    artist_id: Number
+    artist_id: Number,
+    user_id: Number
   },
   methods: {
     handleChange(event) {

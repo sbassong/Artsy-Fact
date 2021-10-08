@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    
+    <h1>
+      Artsy <br/> Facts
+      </h1>
   </div>
 </template>
 
@@ -23,4 +25,11 @@ export default {
   /* position: relative; */
   overflow-x: hidden;
 }
+
+h1 {
+font-family: fantasy;
+font-size: 8rem;
+text-decoration-thickness: 20px;
+}
 </style>
+
